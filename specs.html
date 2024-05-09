@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Specs - GaryNYZ.me</title>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .head>h1>span {
+            transform: translate(1rem, -4rem);
+            display: inline-flex;
+            color: #8B0000;
+        }
+
+        .head {
+            display: flex;
+            margin: 10px auto;
+            width: fit-content;
+        }
+
+        .head>h1>*[alt="Logo"] {
+            outline: 1px solid rgb(212, 212, 212);
+        }
+
+        .navbar {
+            list-style: none;
+            display: inline-flex;
+            padding: 5px;
+        }
+
+        .navbar>li:not(:last-of-type) {
+            margin-right: 10px;
+        }
+        .navbar > li > a{
+            text-decoration: none;
+            transition: all 200ms ease;
+            color: #8B0000
+        }
+
+        .navbar > li > a:hover,
+        .navbar > li > a:focus{
+            color: #500000
+        }
+
+        .content {
+            display: flex;
+            margin: 10px;
+        }
+
+        card{
+            margin: 10px;
+            padding: 10px 5px;
+            border: 1px solid #b9b9b9;
+            border-radius: 15px;
+        }
+        card > header{
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            padding: 15px;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <h1>
+            <img src="logo.png" alt="Logo" width="150px" /><span>Welcome Home</span><br>
+            <ul class="navbar">
+                <li><a href=".">Home</a></li>
+                <li><a href="about-me.html">About me</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="specs.html">Specs / Hardware</a></li>
+            </ul>
+        </h1>
+    </div>
+    <div class="content">
+        <card>
+            <header>Laptop</header>
+            <content><span>Lenovo ThinkPad E15 Gen 2</span>
+                <p><span>CPU: Intel i7 1165-G7</span></p>
+                <p><span>RAM: 32 GB DDR4 3200Mhz</span></p>
+                <p><span>HDD: Samsung 970 Evo Plus 1TB NVME</span></p>
+                <p><span>GPU: Intel Iris XE & NVidia MX450</span></p>
+                <p><span>OS: Windows 10 Pro & Ubuntu 23.04 (dual boot)</span></p>
+            </content>
+        </card>
+        <card>
+            <header>Daily driver</header>
+            <content><span>Custom build</span>
+                <p><span>CPU: Intel Xeon E5-2670 V3 (swapping soon to V4)</span></p>
+                <p><span>RAM: 32 GB DDR4 2311Mhz</span></p>
+                <p><span>HDD 1: Samsung PM981a MZVLB512HBJQ 512GB NVME (swapping soon)</span></p>
+                <p><span>HDD 2: WD Gold 2TB HDD</span></p>
+                <p><span>HDD 3: Kingston NGFF 512 GB M.2 SSD</span></p>
+                <p><span>GPU: AMD/XFX Radeon RX580 8GB</span></p>
+                <p><span>OS: Windows 10 Pro & Ubuntu 22.04 (dual boot from seperate SSDs)</span></p>
+            </content>
+        </card>
+    </div>
+    <div class="footer">
+        <span class="copyright">&copy; GaryNYZ - 2024</span><br>
+        <span>Data used to load everything: <span id="size"></span></span>
+    </div>
+</body>
+<script>
+    // tells you how much data was used in this shit
+    // credit: https://stackoverflow.com/a/23866862
+    function getPageLoadTime() {
+        var request = new XMLHttpRequest();
+        request.open("GET", document.location, false);
+        request.send();
+        var size = request
+            .getAllResponseHeaders()
+            .toLowerCase()
+            .match(/\d+/);
+
+        document.getElementById("size").innerHTML = size + " bytes";
+    }
+    getPageLoadTime();
+</script>
+
+</html>
