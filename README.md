@@ -39,11 +39,11 @@
             }
             .footer{
                 position: fixed;
-  left: 0;
-  bottom: 0;
-  padding: 15px;
-  width: 100%;
-  text-align: center;
+                left: 0;
+                bottom: 0;
+                padding: 15px;
+                width: 100%;
+                text-align: center;
             }
         </style>
     </head>
@@ -61,9 +61,7 @@
                 </ul>
             </h1>
         </div>
-        <div class="content">
-            
-        </div>
+        <div class="content"></div>
         <div class="footer">
             <span class="copyright">&copy; GaryNYZ - 2024</span><br>
             <span>Data used to load everything: <span id="size"></span></span>
@@ -80,7 +78,6 @@
                 .getAllResponseHeaders()
                 .toLowerCase()
                 .match(/\d+/);
-
             document.getElementById("size").innerHTML = size + " bytes";
         }
         getPageLoadTime();
